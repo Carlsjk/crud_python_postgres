@@ -16,7 +16,7 @@ while not salir:
     if opcion == 1:
         listado_usuarios = UsuarioDAO.seleccionar()
         for usuario in listado_usuarios:
-            log.debug(usuario)
+            log.debug(f'Listado de usuarios: {usuario}')
     elif opcion == 2:
         username = input('Escribe el username: ')
         password = input('Escribe el password: ')
@@ -29,12 +29,12 @@ while not salir:
         password_mod = input('Escribe el nuevo password: ')
         usuario_mod = Usuario(id_usuario=id_usuario, username=username_mod, password=password_mod)
         nuevo_usuario_modificado = UsuarioDAO.actualizar(usuario_mod)
-        log.debug(nuevo_usuario_modificado)
+        log.debug(f'Usuarios actualizados: {nuevo_usuario_modificado}')
     elif opcion == 4:
         id_usuario = int(input('Escribe el id_usuario a eliminar: '))
         usuario_eliminar = Usuario(id_usuario=id_usuario)
         usuario_eliminado = UsuarioDAO.eliminar(usuario_eliminar)
-        log.debug(usuario_eliminado)
+        log.debug(f'Usuarios eliminados: {usuario_eliminado}')
     elif opcion == 5:
         salir = True
         print('Saliendo del menú...')
